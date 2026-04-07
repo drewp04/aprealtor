@@ -796,11 +796,10 @@ nav.scrolled .nav-logo img { height: 40px; }
             <option value="Referral">A Friend or Family Member</option>
             <option value="Past client">Past Client</option>
             <option value="Instagram">Instagram</option>
-            <option value="Zillow">Zillow</option>
             <option value="Google">Google Search</option>
             <option value="Sign call">Sign / Yard Sign</option>
             <option value="Open house">Open House</option>
-            <option value="Database">Other</option>
+            <option value="Other">Other</option>
           </select>
         </div>
         <div class="form-group">
@@ -895,38 +894,40 @@ nav.scrolled .nav-logo img { height: 40px; }
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    // Build the next_action note — includes email since no email column
-    const timeline = document.getElementById('timeline').value;
-    const message  = document.getElementById('message').value;
-    const zip      = document.getElementById('zip').value;
-    const email    = document.getElementById('email').value.trim();
-    const nextAction = [
-      email    ? `Email: ${email}` : '',
-      timeline ? `Timeline: ${timeline}` : '',
-      zip      ? `Area: ${zip}` : '',
-      message  ? `Note: ${message}` : ''
-    ].filter(Boolean).join(' | ');
+    // Collect form values — each goes to its own dedicated column
+    const timeline  = document.getElementById('timeline').value;
+    const message   = document.getElementById('message').value.trim();
+    const zip       = document.getElementById('zip') ? document.getElementById('zip').value.trim() : '';
+    const email     = document.getElementById('email').value.trim();
+    const referral  = document.getElementById('source').value;
 
-    // Map form → AgentDesk clients table columns (exact match)
+    // notes: message + how they found you
+    const notesValue = [
+      referral ? `Found via: ${referral}` : '',
+      message  ? message : ''
+    ].filter(Boolean).join('\n');
+
+    // Map form → AgentDesk clients table columns (clean mapping)
     const today = new Date();
-    const addedDate = today.toLocaleString('en-US', { month: 'short', day: 'numeric' }); // e.g. "Apr 7"
+    const addedDate = today.toLocaleString('en-US', { month: 'short', day: 'numeric' });
 
     const payload = {
-      name:         document.getElementById('fname').value.trim(),
-      phone:        document.getElementById('phone').value.trim() || null,
-      type:         document.getElementById('type').value || 'Buyer',
-      source:       document.getElementById('source').value || 'Website',
-      stage:        'Lead Start',
-      next_action:  nextAction || 'New website lead — follow up',
-      street:       null,
-      city:         zip ? null : null,
-      state:        'CA',
-      zip:          zip || null,
-      added_date:   addedDate,
-      sale_price:   null,
-      commission:   null,
-      coe:          null,
-      lost_reason:  null,
+      name:        document.getElementById('fname').value.trim(),
+      phone:       document.getElementById('phone').value.trim() || null,
+      email:       email || null,
+      type:        document.getElementById('type').value || 'Buyer',
+      source:      'Website',
+      stage:       'Lead Start',
+      timeline:    timeline || null,
+      notes:       notesValue || null,
+      next_action: 'New website lead — follow up',
+      zip:         zip || null,
+      state:       'CA',
+      added_date:  addedDate,
+      sale_price:  null,
+      commission:  null,
+      coe:         null,
+      lost_reason: null,
     };
 
     try {
