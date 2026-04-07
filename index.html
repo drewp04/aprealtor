@@ -901,11 +901,8 @@ nav.scrolled .nav-logo img { height: 40px; }
     const email     = document.getElementById('email').value.trim();
     const referral  = document.getElementById('source').value;
 
-    // notes: message + how they found you
-    const notesValue = [
-      referral ? `Found via: ${referral}` : '',
-      message  ? message : ''
-    ].filter(Boolean).join('\n');
+    // notes: just their message
+    const notesValue = message || null;
 
     // Map form → AgentDesk clients table columns (clean mapping)
     const today = new Date();
@@ -916,7 +913,7 @@ nav.scrolled .nav-logo img { height: 40px; }
       phone:       document.getElementById('phone').value.trim() || null,
       email:       email || null,
       type:        document.getElementById('type').value || 'Buyer',
-      source:      'Website',
+      source:      referral || 'Website',
       stage:       'Lead Start',
       timeline:    timeline || null,
       notes:       notesValue || null,
