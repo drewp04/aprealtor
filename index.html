@@ -181,19 +181,6 @@ nav {
 }
 .hero-badge p { font-family: var(--font-display); font-size: 1rem; font-style: italic; line-height: 1.4; }
 .hero-badge span { display: block; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.78; margin-top: 0.4rem; }
-.scroll-hint {
-  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-  color: rgba(255,255,255,0.28); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; z-index: 3;
-  animation: fadeUp 1.3s 0.8s ease both;
-}
-.scroll-line { width: 1px; height: 36px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; }
-.scroll-line::after {
-  content: ''; position: absolute; top: -36px; left: 0; right: 0; height: 36px; background: var(--orange);
-  animation: drop 1.8s 1.5s ease-in-out infinite;
-}
-@keyframes drop { 0% { top: -36px; } 100% { top: 36px; } }
-
 /* TRUST BAR */
 .trust-bar {
   background: var(--orange); padding: 0.85rem 4rem;
@@ -283,7 +270,7 @@ nav {
 .expect-card:hover::after { transform: scaleX(1); }
 .expect-num {
   font-family: var(--font-display); font-size: 3.5rem; font-weight: 700;
-  color: rgba(200,90,26,0.13); line-height: 1; margin-bottom: 0.5rem;
+  color: var(--orange); line-height: 1; margin-bottom: 0.5rem; opacity: 0.7;
 }
 .expect-card h3 { font-family: var(--font-display); font-size: 1.25rem; color: #fff; font-weight: 600; margin-bottom: 0.65rem; }
 .expect-card p { font-size: 0.85rem; color: rgba(255,255,255,0.48); line-height: 1.7; font-weight: 300; }
@@ -539,10 +526,7 @@ nav.scrolled .nav-logo img { height: 40px; }
       <span>Andrew Perez · DRE #01965640</span>
     </div>
   </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
+
 </section>
 
 <!-- TRUST BAR -->
