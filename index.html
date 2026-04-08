@@ -432,7 +432,28 @@ footer {
 nav.scrolled { padding: 0.5rem 4rem; box-shadow: 0 2px 24px rgba(10,22,40,0.12); }
 nav.scrolled .nav-logo img { height: 40px; }
 
-/* ANIMATIONS */
+/* SOCIAL LINKS */
+.social-links { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.75rem; }
+.social-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(200,90,26,0.1); border: 1px solid rgba(200,90,26,0.25);
+  color: var(--orange); text-decoration: none; font-size: 0.85rem;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.social-btn:hover { background: var(--orange); color: #fff; border-color: var(--orange); transform: translateY(-2px); }
+.social-btn svg { width: 16px; height: 16px; fill: currentColor; }
+.social-btn-label {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1.25rem; border-radius: 3px;
+  background: rgba(200,90,26,0.1); border: 1px solid rgba(200,90,26,0.25);
+  color: var(--orange); text-decoration: none; font-size: 0.82rem; font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.social-btn-label:hover { background: var(--orange); color: #fff; transform: translateY(-2px); }
+.social-btn-label svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
@@ -707,6 +728,24 @@ nav.scrolled .nav-logo img { height: 40px; }
       <a href="tel:6616197272" class="btn-primary">Call (661) 619-7272</a>
       <a href="mailto:andrew@aprealtor.co" class="btn-outline">Email Me →</a>
     </div>
+    <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;">
+        <a href="https://www.instagram.com/realtorandrewperez/" target="_blank" rel="noopener" class="social-btn-label">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/andrew.perez.7927/" target="_blank" rel="noopener" class="social-btn-label">
+          <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.youtube.com/@realtorandrewp" target="_blank" rel="noopener" class="social-btn-label">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+          YouTube
+        </a>
+        <a href="https://g.page/r/CZszzY3LyxhTEBM/review" target="_blank" rel="noopener" class="social-btn-label">
+          <svg viewBox="0 0 24 24"><path d="M12 11h8.5c.1.5.2 1 .2 1.5 0 4.7-3.2 8-8.2 8-4.7 0-8.5-3.8-8.5-8.5S7.8 3.5 12.5 3.5c2.3 0 4.2.8 5.7 2.2l-2.3 2.3C15 7.2 13.8 6.7 12.5 6.7c-3.2 0-5.8 2.6-5.8 5.8s2.6 5.8 5.8 5.8c2.9 0 4.9-1.7 5.3-4H12v-3.3z"/></svg>
+          Leave a Google Review ⭐
+        </a>
+      </div>
   </div>
   <div class="cta-contact reveal">
     <div class="cc">
@@ -819,6 +858,20 @@ nav.scrolled .nav-logo img { height: 40px; }
         <a href="mailto:andrew@aprealtor.co">andrew@aprealtor.co</a><br>
         <a href="tel:6616197272">(661) 619-7272</a>
       </div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/realtorandrewperez/" target="_blank" rel="noopener" class="social-btn" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/andrew.perez.7927/" target="_blank" rel="noopener" class="social-btn" title="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@realtorandrewp" target="_blank" rel="noopener" class="social-btn" title="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        </a>
+        <a href="https://g.page/r/CZszzY3LyxhTEBM/review" target="_blank" rel="noopener" class="social-btn" title="Leave a Google Review">
+          <svg viewBox="0 0 24 24"><path d="M12 11h8.5c.1.5.2 1 .2 1.5 0 4.7-3.2 8-8.2 8-4.7 0-8.5-3.8-8.5-8.5S7.8 3.5 12.5 3.5c2.3 0 4.2.8 5.7 2.2l-2.3 2.3C15 7.2 13.8 6.7 12.5 6.7c-3.2 0-5.8 2.6-5.8 5.8s2.6 5.8 5.8 5.8c2.9 0 4.9-1.7 5.3-4H12v-3.3z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
   <div class="footer-broker">
@@ -837,6 +890,7 @@ nav.scrolled .nav-logo img { height: 40px; }
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
   // ── Supabase ──────────────────────────────────────────────
   const SUPABASE_URL = 'https://xobgezpptkktdbowpdai.supabase.co';
@@ -919,6 +973,26 @@ nav.scrolled .nav-logo img { height: 40px; }
         btn.textContent = 'Something went wrong — try calling me at (661) 619-7272';
         btn.disabled = false;
       } else {
+        // ── Send email notification ──────────────────────────
+        try {
+          emailjs.init('YOUR_EMAILJS_PUBLIC_KEY');
+          await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            to_email:   'andrew@aprealtor.co',
+            lead_name:  payload.name,
+            lead_phone: payload.phone || 'Not provided',
+            lead_email: payload.email || 'Not provided',
+            lead_type:  payload.type || 'Not selected',
+            lead_timeline: payload.timeline || 'Not selected',
+            lead_source: payload.source || 'Website',
+            lead_zip:   payload.zip || 'Not provided',
+            lead_notes: payload.notes || 'No message',
+            agentdesk_url: 'https://drewp04.github.io/Pipeline',
+          });
+        } catch(emailErr) {
+          console.log('Email notification error:', emailErr);
+          // Don't block the user — Supabase insert already succeeded
+        }
+        // ────────────────────────────────────────────────────
         form.style.display = 'none';
         successEl.style.display = 'block';
         successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
